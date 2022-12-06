@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <style>
+        body{
+            background: #6a11cb;
+        }
+        h3{
+            text-align: center;
+            font-size: 25px;
+            font-family: 'Times New Roman', Times, serif;
+            {% comment %} border:2px solid black; {% endcomment %}
+        }
+        div.div1{
+            /* border: 2px solid aliceblue; */
+            border-radius: 15px;
+            width: 23%;
+            padding: 3%;  /* distance from inside the box */
+            margin-inline: 35%;  /* distance from outside the box */
+            margin-top:4%;
+            background:white;
+
+            
+        }
+        input.s{
+            border-width: 1px;
+            border-radius: 5px;
+            width: 90%;
+            padding: 3%;    
+        }
+        div.div2{
+            color: red;
+            text-align: center;
+        }
+        input.submit{
+            background-color: #04AA6D;
+            color: white;
+            font-size: larger;
+            width: 97%;
+            padding:3%;
+            border: #04AA6D 1px solid;
+            border-radius: 5px; 
+            padding-left: 5%;
+        }
+       
+    
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <form action="" method="post">
+        {% csrf_token %}
+        <h3>signup here</h3>
+        <div class="div2">
+        {% for message in messages  %}
+            {{message}}
+        {% endfor %}
+        </div>
+            
+        <br>
+        <input type="text" placeholder="UserName" name="uname" required class="s">
+        <br><br>
+        <input type="email" placeholder="Enter Email Id" name="email" required class="s">
+        <br><br>
+        <input type="password" placeholder="password" name="pass1" required class="s">
+        <br><br>
+        <input type="password" placeholder="confirm password" name="pass2" required class="s">
+        <br><br>
+        <input type="submit" value="signup" class="submit">
+        <p>Already have an account? <a href="login/">Click here</a></p>
+        <br>
+
+        </form>
+    </div>
+</body>
+</html>
